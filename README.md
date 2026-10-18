@@ -114,16 +114,14 @@ That Actor goes the other way: mailbox to profile. When `hasLinkedIn` is true an
 
 ## Price
 
-You pay only when a personal email is found. One profile is one charge, even if that profile has more than one address on record. Starting from $30 per 1,000 on Diamond. Gold is $38 per 1,000. The free plan is $50.
+You pay only when a personal email is found. One profile is one charge, even if that profile has more than one address on record. Starting from $30 per 1,000. Gold, Platinum, and Diamond are $30. The free plan is $50.
 
 | Plan | Per 1,000 emails found |
 | --- | --- |
 | Free | $50 |
 | Bronze | $46 |
 | Silver | $42 |
-| Gold | $38 |
-| Platinum | $34 |
-| Diamond | $30 |
+| Gold, Platinum, and Diamond | $30 |
 
 Paid Apify plans get the lower price automatically. A list of 1,000 URLs that matches 400 profiles costs 400 charges, not 1,000.
 
