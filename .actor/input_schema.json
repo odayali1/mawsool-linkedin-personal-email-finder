@@ -1,0 +1,67 @@
+{
+  "title": "LinkedIn Email Finder | Exact Personal Match",
+  "type": "object",
+  "schemaVersion": 1,
+  "description": "LinkedIn email finder for a profile URL you already have. Returns a personal Gmail, Outlook, Yahoo, or Hotmail only when the match is 100% exact. No match, no charge. 400M+ records, Starting from $30 per 1,000 found. You supply the URL. Mawsool is not affiliated with LinkedIn.",
+  "properties": {
+    "lawfulUse": {
+      "title": "Professional use and lawful basis",
+      "type": "boolean",
+      "description": "This run is for professional outreach, recruiting, or account-based marketing, and you have a lawful basis to use a match. Mawsool does not send the email for you. Leaving this off does not stop the run.",
+      "default": true
+    },
+    "urls": {
+      "title": "LinkedIn profile URLs",
+      "type": "array",
+      "description": "Profile URLs you already have, such as linkedin.com/in/.... After a match, check quality in Email to LinkedIn: https://apify.com/oday/mawsool-email-linkedin-lookup",
+      "editor": "stringList",
+      "prefill": [
+        "https://www.linkedin.com/in/example"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "urlsCsv": {
+      "title": "Or paste CSV",
+      "type": "string",
+      "description": "A url or linkedinUrl column. One URL per row is also accepted.",
+      "editor": "textarea",
+      "prefill": "url\nhttps://www.linkedin.com/in/example"
+    },
+    "fileUrl": {
+      "title": "Or upload a CSV file",
+      "type": "string",
+      "description": "CSV with a url or linkedinUrl column. HubSpot, Salesforce, Clay, and recruiter exports all work.",
+      "editor": "fileupload"
+    },
+    "maxUrls": {
+      "title": "Maximum URLs",
+      "type": "integer",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 50000,
+      "description": "Cost-control cap. Maximum 50,000. You pay only for profiles that return a personal email."
+    },
+    "concurrency": {
+      "title": "Concurrent lookups",
+      "type": "integer",
+      "description": "How many profiles to look up at the same time.",
+      "default": 8,
+      "minimum": 1,
+      "maximum": 20
+    },
+    "resumeId": {
+      "title": "Resume ID (optional)",
+      "type": "string",
+      "description": "Reuse this ID to skip profiles that already returned an email.",
+      "editor": "textfield"
+    },
+    "freshStart": {
+      "title": "Look up finished profiles again",
+      "type": "boolean",
+      "description": "Turn this on to ignore saved progress and look up the whole list again.",
+      "default": false
+    }
+  }
+}

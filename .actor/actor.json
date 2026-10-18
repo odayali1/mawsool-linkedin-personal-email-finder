@@ -1,0 +1,39 @@
+{
+  "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+  "actorSpecification": 1,
+  "name": "mawsool-linkedin-personal-email-finder",
+  "title": "LinkedIn Email Finder | Exact Personal Match",
+  "description": "LinkedIn email finder for a profile URL you already have. A personal Gmail, Outlook, Yahoo, or Hotmail only on a 100% exact match. No match, no charge. Starting from $30 per 1,000 found. No LinkedIn login and no cookies.",
+  "seoTitle": "LinkedIn Email Finder, Exact Match Only",
+  "seoDescription": "LinkedIn email finder for a profile URL. Personal Gmail, Outlook, Yahoo, or Hotmail on a 100% exact match. No match, no charge. Starting from $30 per 1,000.",
+  "categories": [
+    "LEAD_GENERATION",
+    "SOCIAL_MEDIA",
+    "AUTOMATION"
+  ],
+  "version": "1.0",
+  "buildTag": "latest",
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048,
+  "defaultRunOptions": {
+    "build": "latest",
+    "timeoutSecs": 86400,
+    "memoryMbytes": 512
+  },
+  "environmentVariables": {
+    "CHARGE_EVENT": "profile-personal-email",
+    "EXACT_API_BASE_URL": "https://api-v2.mawsool.tech",
+    "EXACT_API_KEY": "@mawsoolExactLookupKey"
+  },
+  "meta": {
+    "templateId": "ts-empty",
+    "generatedBy": "Cursor Agent"
+  },
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "pricing": "./pay_per_event.json",
+  "dockerfile": "../Dockerfile"
+}

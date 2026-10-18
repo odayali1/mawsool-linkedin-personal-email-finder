@@ -1,0 +1,18 @@
+{
+  "actorSpecification": 1,
+  "events": {
+    "profile-personal-email": {
+      "title": "Personal email found",
+      "description": "One LinkedIn profile URL that returned a 100% exact personal email. From $38 per 1,000 on Gold, $50 on the free plan. Profiles with no match are not charged. Extra addresses on the same profile are included.",
+      "isPrimaryEvent": true,
+      "eventTieredPricingUsd": {
+        "FREE": { "tieredEventPriceUsd": 0.05 },
+        "BRONZE": { "tieredEventPriceUsd": 0.046 },
+        "SILVER": { "tieredEventPriceUsd": 0.042 },
+        "GOLD": { "tieredEventPriceUsd": 0.038 },
+        "PLATINUM": { "tieredEventPriceUsd": 0.034 },
+        "DIAMOND": { "tieredEventPriceUsd": 0.03 }
+      }
+    }
+  }
+}

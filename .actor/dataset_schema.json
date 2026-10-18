@@ -1,0 +1,35 @@
+{
+  "actorSpecification": 1,
+  "title": "LinkedIn to Personal Email Finder",
+  "description": "One profile URL is one row. You are charged only when a personal email is found.",
+  "fields": {
+    "type": "object",
+    "properties": {
+      "inputUrl": { "type": ["string", "null"], "title": "inputUrl" },
+      "hasPersonalEmail": { "type": "boolean", "title": "hasPersonalEmail" },
+      "personalEmail": { "type": ["string", "null"], "title": "personalEmail" },
+      "personalEmails": { "type": ["string", "null"], "title": "personalEmails" },
+      "emailCount": { "type": ["integer", "null"], "title": "emailCount" },
+      "emailProvider": { "type": ["string", "null"], "title": "emailProvider" },
+      "matchType": { "type": ["string", "null"], "title": "matchType" },
+      "success": { "type": "boolean", "title": "success" }
+    }
+  },
+  "views": {
+    "flat": {
+      "title": "All rows",
+      "transformation": {
+        "fields": ["inputUrl", "hasPersonalEmail", "personalEmail", "emailProvider", "emailCount", "matchType", "success"]
+      },
+      "display": { "component": "table", "properties": {} }
+    },
+    "matches": {
+      "title": "Emails found",
+      "transformation": {
+        "fields": ["inputUrl", "personalEmail", "personalEmails", "emailProvider", "emailCount"],
+        "filter": "hasPersonalEmail == true"
+      },
+      "display": { "component": "table", "properties": {} }
+    }
+  }
+}
