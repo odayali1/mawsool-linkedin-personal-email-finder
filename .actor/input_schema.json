@@ -16,7 +16,8 @@
       "description": "Profile URLs you already have, such as linkedin.com/in/.... After a match, check quality in Email to LinkedIn: https://apify.com/oday/mawsool-email-linkedin-lookup",
       "editor": "stringList",
       "prefill": [
-        "https://www.linkedin.com/in/example"
+        "https://www.linkedin.com/in/gopalika-barwal",
+        "https://www.linkedin.com/in/osama-abdelhadi"
       ],
       "items": {
         "type": "string"
@@ -27,7 +28,7 @@
       "type": "string",
       "description": "A url or linkedinUrl column. One URL per row is also accepted.",
       "editor": "textarea",
-      "prefill": "url\nhttps://www.linkedin.com/in/example"
+      "prefill": "url\nhttps://www.linkedin.com/in/gopalika-barwal\nhttps://www.linkedin.com/in/osama-abdelhadi"
     },
     "fileUrl": {
       "title": "Or upload a CSV file",
