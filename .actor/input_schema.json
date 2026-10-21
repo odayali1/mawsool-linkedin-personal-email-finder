@@ -13,12 +13,8 @@
     "urls": {
       "title": "LinkedIn profile URLs",
       "type": "array",
-      "description": "Profile URLs you already have, such as linkedin.com/in/.... After a match, check quality in Email to LinkedIn: https://apify.com/oday/mawsool-email-linkedin-lookup",
+      "description": "Paste only the profile URLs you want looked up. This box starts empty so a sample profile is not sent. After a match, check quality in Email to LinkedIn: https://apify.com/oday/mawsool-email-linkedin-lookup",
       "editor": "stringList",
-      "prefill": [
-        "https://www.linkedin.com/in/gopalika-barwal",
-        "https://www.linkedin.com/in/osama-abdelhadi"
-      ],
       "items": {
         "type": "string"
       }
@@ -26,9 +22,8 @@
     "urlsCsv": {
       "title": "Or paste CSV",
       "type": "string",
-      "description": "A url or linkedinUrl column. One URL per row is also accepted.",
+      "description": "Optional. A url or linkedinUrl column, or one profile URL per line. Leave this empty when the list above already has your URLs. Sample rows left in this box are not looked up.",
       "editor": "textarea",
-      "prefill": "url\nhttps://www.linkedin.com/in/gopalika-barwal\nhttps://www.linkedin.com/in/osama-abdelhadi"
     },
     "fileUrl": {
       "title": "Or upload a CSV file",

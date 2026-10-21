@@ -67,10 +67,7 @@ Add the profile URLs you already have. The professional-use box is on by default
 ```json
 {
   "lawfulUse": true,
-  "urls": [
-    "https://www.linkedin.com/in/gopalika-barwal",
-    "https://www.linkedin.com/in/osama-abdelhadi"
-  ]
+  "urls": ["https://www.linkedin.com/in/the-profile-you-already-have"]
 }
 ```
 
@@ -82,7 +79,7 @@ A match. You are charged once for this profile. Extra addresses on the same prof
 
 ```json
 {
-  "inputUrl": "https://www.linkedin.com/in/osama-abdelhadi",
+  "inputUrl": "https://www.linkedin.com/in/the-profile-you-already-have",
   "hasPersonalEmail": true,
   "personalEmail": "person@gmail.com",
   "personalEmails": "person@gmail.com",
@@ -97,7 +94,7 @@ No exact match. The row is successful, the email is empty, and you are not charg
 
 ```json
 {
-  "inputUrl": "https://www.linkedin.com/in/osama-abdelhadi",
+  "inputUrl": "https://www.linkedin.com/in/the-profile-you-already-have",
   "hasPersonalEmail": false,
   "personalEmail": null,
   "emailCount": 0,

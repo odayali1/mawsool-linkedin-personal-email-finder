@@ -16,6 +16,13 @@ const API_BASE = (process.env.EXACT_API_BASE_URL || 'https://api-v2.mawsool.tech
 const API_KEY = process.env.EXACT_API_KEY?.trim();
 const EVENT = process.env.CHARGE_EVENT || 'profile-personal-email';
 const HARD_MAX = 50_000;
+const SAMPLE_SLUGS = new Set([
+    'gopalika-barwal',
+    'osama-abdelhadi',
+    'example',
+    'your-profile',
+    'the-profile-you-already-have',
+]);
 const DIRECT_ATTEMPTS = 5;
 const LOOKUP_TIMEOUT_MS = 45_000;
 
@@ -58,12 +65,19 @@ async function collectUrls(input: Input): Promise<string[]> {
     }
     const seen = new Set<string>();
     const urls: string[] = [];
+    let skippedSamples = 0;
     for (const value of raw) {
         const url = normalizeUrl(value);
         if (!url || seen.has(url)) continue;
         seen.add(url);
+        const slug = decodeURIComponent(new URL(url).pathname.match(/\/in\/([^/]+)/i)?.[1] || '').toLowerCase();
+        if (SAMPLE_SLUGS.has(slug)) {
+            skippedSamples += 1;
+            continue;
+        }
         urls.push(url);
     }
+    if (skippedSamples) log.info(`Skipped ${skippedSamples} sample profile URL(s). They are not sent to the lookup.`);
     return urls;
 }
 
@@ -168,7 +182,7 @@ const input = (await Actor.getInput<Input>()) || {};
 
 const maxUrls = Math.min(Math.max(Number(input.maxUrls ?? 100), 1), HARD_MAX);
 const urls = (await collectUrls(input)).slice(0, maxUrls);
-if (!urls.length) throw new Error('No valid LinkedIn profile URLs found. Add URLs, paste CSV, or upload a CSV file.');
+if (!urls.length) throw new Error('Add your own LinkedIn profile URLs. Sample profiles are not looked up, including rows left in the CSV box.');
 
 const concurrency = Math.min(Math.max(Number(input.concurrency ?? 8), 1), 20);
 const progressId = (input.resumeId || 'auto').replace(/[^a-zA-Z0-9-_]/g, '-').slice(0, 60) || 'auto';
