@@ -13,8 +13,11 @@
     "urls": {
       "title": "LinkedIn profile URLs",
       "type": "array",
-      "description": "Paste only the profile URLs you want looked up. This box starts empty so a sample profile is not sent. After a match, check quality in Email to LinkedIn: https://apify.com/oday/mawsool-email-linkedin-lookup",
+      "description": "Profile URLs you already have. One sample link is shown here. If you add your own URLs, delete the sample. Leave the CSV box empty when you use this list. After a match, check quality in Email to LinkedIn: https://apify.com/oday/mawsool-email-linkedin-lookup",
       "editor": "stringList",
+      "prefill": [
+        "https://www.linkedin.com/in/osama-abdelhadi"
+      ],
       "items": {
         "type": "string"
       }

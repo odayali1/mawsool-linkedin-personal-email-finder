@@ -16,13 +16,13 @@ const API_BASE = (process.env.EXACT_API_BASE_URL || 'https://api-v2.mawsool.tech
 const API_KEY = process.env.EXACT_API_KEY?.trim();
 const EVENT = process.env.CHARGE_EVENT || 'profile-personal-email';
 const HARD_MAX = 50_000;
-const SAMPLE_SLUGS = new Set([
+const IGNORED_SLUGS = new Set([
     'gopalika-barwal',
-    'osama-abdelhadi',
     'example',
     'your-profile',
     'the-profile-you-already-have',
 ]);
+const DEMO_SLUG = 'osama-abdelhadi';
 const DIRECT_ATTEMPTS = 5;
 const LOOKUP_TIMEOUT_MS = 45_000;
 
@@ -64,18 +64,24 @@ async function collectUrls(input: Input): Promise<string[]> {
         raw.push(...parseCsv(await response.text()));
     }
     const seen = new Set<string>();
-    const urls: string[] = [];
-    let skippedSamples = 0;
+    const parsed: { url: string; slug: string }[] = [];
     for (const value of raw) {
         const url = normalizeUrl(value);
         if (!url || seen.has(url)) continue;
         seen.add(url);
         const slug = decodeURIComponent(new URL(url).pathname.match(/\/in\/([^/]+)/i)?.[1] || '').toLowerCase();
-        if (SAMPLE_SLUGS.has(slug)) {
+        parsed.push({ url, slug });
+    }
+    const hasRealUrl = parsed.some((item) => item.slug !== DEMO_SLUG && !IGNORED_SLUGS.has(item.slug));
+    const urls: string[] = [];
+    let skippedSamples = 0;
+    for (const item of parsed) {
+        const dropDemo = item.slug === DEMO_SLUG && hasRealUrl;
+        if (IGNORED_SLUGS.has(item.slug) || dropDemo) {
             skippedSamples += 1;
             continue;
         }
-        urls.push(url);
+        urls.push(item.url);
     }
     if (skippedSamples) log.info(`Skipped ${skippedSamples} sample profile URL(s). They are not sent to the lookup.`);
     return urls;
