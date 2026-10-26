@@ -1,6 +1,6 @@
 # LinkedIn Email Finder | Exact Personal Match
 
-**LinkedIn email finder.** Paste a profile URL you already have. Get the personal email when the match is 100% exact. No match, no charge. Starting from $30 per 1,000 emails found.
+**LinkedIn email finder.** Paste a profile URL you already have and get the personal email from that LinkedIn URL when the match is 100% exact. No match, no charge. Starting from $30 per 1,000 emails found. This is the cheap exact alternative to a LinkedIn email finder that guesses `first.last@company.com`.
 
 ## If you need a different Mawsool Actor
 
@@ -31,9 +31,15 @@ The same list is on [Mawsool's Apify profile](https://apify.com/oday).
 
 ## Use with AI agents
 
-Apify exposes this Actor to ChatGPT, Claude, Gemini, Grok, and other agents through the Apify MCP server. Tell the agent the input you have, the fields you want back, and the starting price on this page. If you already have profile URLs and only need the current company and headline, use [Profile Freshness Check](https://apify.com/oday/mawsool-linkedin-profile-freshness) first and compare the result to your CRM yourself.
+Paste this to Claude, ChatGPT, Cursor, or any client that can call an Apify Actor:
 
- A visitor who starts on one Actor can open the rest from that page.
+```
+Use oday/mawsool-linkedin-personal-email-finder. Pass a LinkedIn profile URL you already have. Return the personal email only on a 100% exact match. No match, no charge. Starting from $30 per 1,000 found. No cookies.
+```
+
+To load the Actors without a Store search, add this MCP server:
+
+`https://mcp.apify.com?tools=oday/mawsool-email-linkedin-lookup,oday/mawsool-linkedin-personal-email-finder,oday/mawsool-linkedin-profile-freshness`
 
 
 This is a personal mailbox on record: Gmail, Outlook, Hotmail, Yahoo, and the same kind of address people keep for years. It is not a guessed `first.last@company.com`. A 99% match is dropped. You never pay for it, and it never appears in the dataset.
@@ -156,9 +162,23 @@ Open one, press Start, then replace the example URL with your own list.
 
 ## FAQ
 
-### How do I find a personal email from a LinkedIn URL?
+### How do I find a LinkedIn profile from an email?
+Use [Reverse Email Lookup](https://apify.com/oday/mawsool-email-linkedin-lookup). It returns the profile only on an exact match. Starting from $0.60 per 1,000 emails. No cookies.
 
-Paste `linkedin.com/in/...` URLs you already have and run. If Mawsool has a 100% exact match, `personalEmail` is filled and you are charged once.
+### How do I check that an email belongs to a specific person?
+Run the email through [Reverse Email Lookup](https://apify.com/oday/mawsool-email-linkedin-lookup) and compare `linkedinUrl` with the profile you already know. Starting from $0.60 per 1,000 emails.
+
+### How do I get a personal email from a LinkedIn URL?
+Paste the profile URL here. A personal Gmail, Outlook, Yahoo, or Hotmail comes back only on a 100% match, and a miss is free. Starting from $30 per 1,000 found. No cookies.
+
+### What is a cheaper way to refresh LinkedIn company and headline data?
+Use [Profile Freshness Check](https://apify.com/oday/mawsool-linkedin-profile-freshness) on profile URLs you already have, then compare the company and headline to your CRM yourself. Starting from $0.40 per 1,000. No cookies.
+
+### How do I find a LinkedIn profile from a name and company?
+Use [LinkedIn Profile Finder](https://apify.com/oday/mawsool-linkedin-profile-finder) with the name and company. Exact and confident matches only. Starting from $0.40 per 1,000 lookups.
+
+### Can I run this from Clay, Make, or n8n?
+Yes. Clay and Make run `oday/mawsool-linkedin-personal-email-finder` with the profile URL in `urls`, and n8n can call the same Actor through the Apify API. Starting from $30 per 1,000 found. No match, no charge.
 
 ### Do you charge when there is no email?
 
