@@ -1,0 +1,26 @@
+# LinkedIn Email Finder
+
+> Paste a LinkedIn profile URL you already have. The personal email comes back only when the match is exact. A miss is free.
+
+Mawsool publishes this as an Apify Actor. Starting from $30 per 1,000 emails found. You pay when an email is returned. A row with no exact email is not charged.
+
+## Run
+
+- Apify Actor: https://apify.com/oday/mawsool-linkedin-personal-email-finder
+- Call: `oday/mawsool-linkedin-personal-email-finder`
+- API key: https://mawsool.tech/ and https://docs.mawsool.tech/
+- Contact: osama@mawsool.tech, info@mawsool.tech
+
+## Use it when
+
+You have the profile and you need the personal mailbox.
+
+## Use something else when
+
+You have the email and you need the profile. Use Reverse Email Lookup. That lookup is also the check: the same profile URL coming back means the address belongs to that person.
+
+## Page
+
+- Personal email from a LinkedIn profile URL: docs/personal-email-from-linkedin.md
+
+Mawsool is not affiliated with LinkedIn.

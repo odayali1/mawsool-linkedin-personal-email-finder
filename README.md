@@ -6,6 +6,7 @@
 
 | If this is what you need | Open |
 | --- | --- |
+| Your LinkedIn URLs are old, stale, or no longer open. | [Fix Broken LinkedIn URLs](https://apify.com/oday/mawsool-fix-broken-linkedin-urls) |
 | You have an email and want the LinkedIn profile. | [Reverse Email Lookup](https://apify.com/oday/mawsool-email-linkedin-lookup) |
 | You have a name and company and want the profile URL. | [LinkedIn Profile Finder](https://apify.com/oday/mawsool-linkedin-profile-finder) |
 | You only need the current employer, before paying for a full profile. | [Current Company Checker](https://apify.com/oday/mawsool-linkedin-company-checker) |
@@ -39,7 +40,7 @@ Use oday/mawsool-linkedin-personal-email-finder. Pass a LinkedIn profile URL you
 
 To load the Actors without a Store search, add this MCP server:
 
-`https://mcp.apify.com?tools=oday/mawsool-email-linkedin-lookup,oday/mawsool-linkedin-personal-email-finder,oday/mawsool-linkedin-profile-freshness`
+`https://mcp.apify.com?tools=oday/mawsool-fix-broken-linkedin-urls,oday/mawsool-email-linkedin-lookup,oday/mawsool-linkedin-personal-email-finder,oday/mawsool-linkedin-profile-freshness`
 
 
 This is a personal mailbox on record: Gmail, Outlook, Hotmail, Yahoo, and the same kind of address people keep for years. It is not a guessed `first.last@company.com`. A 99% match is dropped. You never pay for it, and it never appears in the dataset.
